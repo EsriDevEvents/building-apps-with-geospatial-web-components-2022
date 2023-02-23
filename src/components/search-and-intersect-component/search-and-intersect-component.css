@@ -1,0 +1,145 @@
+@import '~@arcgis/core/assets/esri/themes/light/main.css';
+@import '~@esri/calcite-components/dist/calcite/calcite.css';
+
+:host {
+    display: block;
+    --calcite-code-family: 'Consolas', 'Andale Mono', 'Lucida Console', 'Monaco', monospace;
+    --calcite-sans-family: 'Avenir Next', 'Avenir', 'Helvetica Neue', sans-serif;
+    --calcite-font-size--3: 0.625rem;
+    --calcite-font-size--2: 0.75rem;
+    --calcite-font-size--1: 0.875rem;
+    --calcite-font-size-0: 1rem;
+    --calcite-font-size-1: 1.125rem;
+    --calcite-font-size-2: 1.25rem;
+    --calcite-font-size-3: 1.625rem;
+    --calcite-font-size-4: 2rem;
+    --calcite-font-size-5: 2.5rem;
+    --calcite-font-size-6: 3rem;
+    --calcite-font-size-7: 3.5rem;
+    --calcite-font-size-8: 4rem;
+    --calcite-font-weight-light: 300;
+    --calcite-font-weight-normal: 400;
+    --calcite-font-weight-medium: 500;
+    --calcite-font-weight-bold: 600;
+    --calcite-ui-brand: #007ac2;
+    --calcite-ui-brand-hover: #00619B;
+    --calcite-ui-brand-press: #004874;
+    --calcite-ui-background: #f8f8f8;
+    --calcite-ui-foreground-1: #ffffff;
+    --calcite-ui-foreground-2: #f3f3f3;
+    --calcite-ui-foreground-3: #eaeaea;
+    --calcite-ui-text-1: #151515;
+    --calcite-ui-text-2: #4a4a4a;
+    --calcite-ui-text-3: #6a6a6a;
+    --calcite-ui-text-inverse: #FFFFFF;
+    --calcite-ui-text-link: #00619b;
+    --calcite-ui-border-1: #cacaca;
+    --calcite-ui-border-2: #d4d4d4;
+    --calcite-ui-border-3: #dfdfdf;
+    --calcite-ui-border-input: #949494;
+    --calcite-ui-info: #00619b;
+    --calcite-ui-success: #35ac46;
+    --calcite-ui-warning: #edd317;
+    --calcite-ui-danger: #D83020;
+    --calcite-ui-danger-hover: #A82B1E;
+    --calcite-ui-danger-press: #7C1D13;
+    --calcite-theme-name: "light";
+    --calcite-ui-foreground-current: #c7eaff;
+    --calcite-ui-inverse: #353535;
+    --calcite-ui-inverse-hover: #2b2b2b;
+    --calcite-ui-inverse-press: #202020;
+    --calcite-alert-dismiss-progress-background: rgba(255, 255, 255, 0.8);
+    --calcite-button-transparent-hover: rgba(0, 0, 0, 0.05);
+    --calcite-button-transparent-press: rgba(0, 0, 0, 0.08);
+    --calcite-link-blue-underline: rgba(0, 97, 155, 0.4);
+    --calcite-scrim-background: rgba(255, 255, 255, 0.85)
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --calcite-border-radius: 4px;
+    --calcite-border-radius-base: 0;
+    --calcite-ui-opacity-disabled: 0.5;
+    --calcite-panel-width-multiplier: 1;
+    --calcite-ui-icon-color: currentColor;
+    font-family: var(--calcite-sans-family);
+}
+
+.search-component-panel {
+    width: var(--search-and-intersect-component-width, 40vw);
+    height: var(--search-and-intersect-component-height, 60vh);
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    flex: 1 1 auto;
+}
+.flex-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    position: relative;
+}
+.flex-panel > * {
+    flex: 1 1 0;
+    position: relative;
+}
+.flex-panel > .flex-fixed {
+    flex: 0 0 auto;
+    overflow: visible;
+    z-index: 1001;
+    min-height: 6rem;
+}
+.flex-panel > .flex-fixed > .abs-placer {
+    position: absolute;
+    top: 3.5rem;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: auto;
+}
+.flex-panel > .flex-fixed > .abs-placer .esri-search {
+    width: 100%;
+}
+.flex-panel > .flex-fixed > .abs-placer::before {
+    content: ' ';
+    position: relative;
+    height: 2rem;
+}
+.intersect-list-container {
+    overflow: auto;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+}
+.intersect-list-container .intersect-list,
+.intersect-list-container .filler {
+    visibility: hidden;
+    flex: 1 1 auto;
+}
+.intersect-list-container .showing {
+    visibility: visible;
+}
+.intersect-list-container .intersect-list {
+    display: grid;
+    margin: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+.intersect-list-container calcite-tab {
+    flex: 1 1 100%;
+}
+.intersect-list-container calcite-link {
+    word-break: break-all;
+}
+.intersect-list-container .filler {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    height: calc(100% - 40px);
+    display: flex;
+}
+.intersect-list-container .filler > div:first-child {
+    flex: 1 1 100%;
+}

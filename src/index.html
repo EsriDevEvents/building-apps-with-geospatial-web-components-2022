@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+        <title>Stencil Component Starter</title>
+        <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css" />
+        <script type="module" src="/build/stencil-find-and-list-component.esm.js"></script>
+        <script nomodule src="/build/stencil-find-and-list-component.js"></script>
+    </head>
+    <body>
+        <div style="display: flex; flex-direction: row; gap: 40px">
+            <search-and-intersect-component
+                search-url="https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/Berlin_Adressen/FeatureServer/0"
+                search-title="Kindertagesstätten suchen"
+                search-fields="str_name"
+                search-display-fields="hnr,str_name,ort_name"
+                search-placeholder="Straßennamen suchen"
+                intersect-url="https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/Kindertagesstätten_Berlin/FeatureServer/0"
+                intersect-title="Kindertagesstätten im Umkreis von 1000m"
+                intersect-fields="e_name,e_hnr,e_strasse,e_tel,e_web"
+                use-map="false"
+            ></search-and-intersect-component>
+            <search-and-intersect-component
+                search-url="https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/Berlin_Adressen/FeatureServer/0"
+                search-title="Kleingartenbestand suchen"
+                search-fields="str_name"
+                search-display-fields="hnr,str_name,ort_name"
+                search-placeholder="Straßennamen suchen"
+                intersect-url="https://services2.arcgis.com/jUpNdisbWqRpMo35/arcgis/rest/services/Berlin_Kleingartenbestand/FeatureServer/0"
+                intersect-title="Kleingärten im Umkreis von 1000m"
+                intersect-fields="OBJEKTNAME,STRASSE,ZWISCHENPAECHTER"
+                use-map="true"
+                map-auto-zoom="13"
+            ></search-and-intersect-component>
+            <div>
+                <div><h2>Wrapped component</h2></div>
+                <div>
+                    <search-and-intersect-component
+                        search-title="Search for Earthquakes near:"
+                        intersect-url="https://services9.arcgis.com/RHVPKKiFTONKtxq3/ArcGIS/rest/services/USGS_Seismic_Data_v1/FeatureServer/0"
+                        intersect-title="Earthquakes within 100 miles"
+                        intersect-fields="place,eventTime,mag,alert,url"
+                        intersect-chip-fields="mag"
+                        intersect-distance="100"
+                        intersect-unit="miles"
+                        use-map="true"
+                    ></search-and-intersect-component>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
