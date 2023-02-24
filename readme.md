@@ -10,7 +10,7 @@ The web component uses a [Search](https://developers.arcgis.com/javascript/lates
 
 ## Live Demo
 
-_Coming soon_
+https://demos.alt.esriuk.com/esri-dev-summit-europe-2022/stencil-find-and-list-component/demo/
 
 ## Getting Started
 
